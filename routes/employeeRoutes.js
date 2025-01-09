@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Employee = require("../models/Employee");
 
-// Create employee
+// Create
 router.post("/employee", async (req, res) => {
   try {
     const employee = new Employee(req.body);
@@ -13,7 +13,7 @@ router.post("/employee", async (req, res) => {
   }
 });
 
-// Read all employees
+// Read
 router.get("/employees", async (req, res) => {
   try {
     const employees = await Employee.find();
@@ -23,7 +23,7 @@ router.get("/employees", async (req, res) => {
   }
 });
 
-// Update employee
+// Update
 router.put("/update/:id", async (req, res) => {
   try {
     const employee = await Employee.findByIdAndUpdate(req.params.id, req.body, {
@@ -35,7 +35,7 @@ router.put("/update/:id", async (req, res) => {
   }
 });
 
-// Delete employee
+// Delete
 router.delete("/delete/:id", async (req, res) => {
   try {
     await Employee.findByIdAndDelete(req.params.id);

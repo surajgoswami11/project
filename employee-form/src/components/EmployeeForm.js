@@ -14,7 +14,6 @@ const EmployeeForm = ({
     address: "",
   });
 
-  // Populate form when editing
   useEffect(() => {
     if (editingEmployee) {
       setEmployee(editingEmployee);
@@ -30,13 +29,11 @@ const EmployeeForm = ({
     e.preventDefault();
     try {
       if (employee._id) {
-        // Update existing employee
         await axios.put(
           `http://localhost:5000/update/${employee._id}`,
           employee
         );
       } else {
-        // Create new employee
         await axios.post("http://localhost:5000/employee", employee);
       }
       fetchEmployees();

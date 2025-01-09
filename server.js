@@ -7,7 +7,7 @@ const employeeRoutes = require("./routes/employeeRoutes");
 
 const app = express();
 
-// Middleware
+// middle
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -23,10 +23,9 @@ async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/employe");
 }
 
-app.get("/", (req, res) => {
-  res.send("you are connected ");
-});
+// app.get("/", (req, res) => {
+//   res.send("you are connected ");
+// });
 
-// Start the server
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
